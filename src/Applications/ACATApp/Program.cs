@@ -29,6 +29,7 @@ using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.UserManagement;
 using ACAT.Lib.Core.Utility;
 using ACAT.Lib.Extension;
+using ACATApp;
 
 #region SupressStyleCopWarnings
 
@@ -110,6 +111,7 @@ namespace ACAT.Applications.ACATApp
                 return;
             }
 
+            Windows.SetResourceManager(Strings.ResourceManager);
             Windows.TurnOffDPIAwareness();
 
             Application.EnableVisualStyles();
@@ -205,6 +207,8 @@ namespace ACAT.Applications.ACATApp
                 Context.Dispose();
 
                 Common.Uninit();
+
+                Windows.ReleaseResourceManager();
 
                 //Utils.Dispose();
 

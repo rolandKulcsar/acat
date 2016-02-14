@@ -192,7 +192,11 @@ namespace ACAT.Lib.Core.PanelManagement
 
             _closeEvent.Set();
             _form.ShowDialog();
-            _form.Dispose();
+
+            if (_form != null)
+            {
+                _form.Dispose();
+            }
         }
 
         /// <summary>

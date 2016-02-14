@@ -21,6 +21,8 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
+using System.Resources;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -38,6 +40,7 @@ namespace ACAT.Lib.Core.Utility
     {
         private const int GWL_STYLE = (-16);
         private static String _taskbarWinClass = "Shell_TrayWnd";
+        private static ResourceManager _resourceManager;
 
         public delegate void FadeInComplete(Form form);
 
@@ -794,6 +797,20 @@ namespace ACAT.Lib.Core.Utility
         }
 
         /// <summary>
+        /// Sets the cached ResourceManager instance.
+        /// </summary>
+        /// <param name="resourceManager">the ResourceManager instance</param>
+        public static void SetResourceManager(ResourceManager resourceManager)
+        {
+            if (resourceManager == null)
+            {
+                throw new ArgumentNullException("resourceManager");
+            }
+
+            _resourceManager = resourceManager;
+        }
+
+        /// <summary>
         /// Sets the window as the active window
         /// </summary>
         /// <param name="hwnd">window handle</param>
@@ -1020,7 +1037,8 @@ namespace ACAT.Lib.Core.Utility
             }
             else
             {
-                control.Text = text;
+                string localizedText = _resourceManager.GetString(text, CultureInfo.CurrentUICulture);
+                control.Text = localizedText ?? text;
             }
         }
 
@@ -1514,6 +1532,17 @@ namespace ACAT.Lib.Core.Utility
                 {
                     control.Select(control.Text.Length, 0);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Tells the resource manager to release all resources.
+        /// </summary>
+        public static void ReleaseResourceManager()
+        {
+            if (_resourceManager != null)
+            {
+                _resourceManager.ReleaseAllResources();
             }
         }
 

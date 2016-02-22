@@ -21,6 +21,10 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 using ACAT.Lib.Core.ThemeManagement;
 using ACAT.Lib.Core.Utility;
@@ -135,11 +139,17 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         private System.Timers.Timer _timer;
 
         /// <summary>
+        /// Used to get the accented words of the typed text.
+        /// </summary>
+        private readonly AccentManagerStorage _accentManagerStorage;
+
+        /// <summary>   
         /// Initializes a new instance of the class.
         /// </summary>
         public TalkWindowBase()
         {
             _syncObj = new SyncLock();
+            _accentManagerStorage = new AccentManagerStorage(Thread.CurrentThread.CurrentCulture);
 
             Load += TalkWindowBase_Load;
         }
@@ -598,6 +608,36 @@ namespace ACAT.Lib.Core.TalkWindowManagement
         }
 
         /// <summary>
+        /// Replace and the typed word with the accented word.
+        /// </summary>
+        private void ReplaceWithAccentedWord()
+        {
+            TextBoxBase textBox = (TextBoxBase)TalkWindowTextBox;
+
+            Match lastMatch = Regex.Matches(textBox.Text, @"\b[\w]*\b")
+                                   .Cast<Match>()
+                                   .LastOrDefault(match => !string.IsNullOrEmpty(match.Value));
+
+            if (lastMatch == null)
+            {
+                return;
+            }
+
+            string accentedWord;
+            if (!_accentManagerStorage.TryGetAccentedText(lastMatch.Value, out accentedWord))
+            {
+                return;
+            }
+
+            StringBuilder textBuilder = new StringBuilder(textBox.Text);
+            textBuilder.Replace(lastMatch.Value, accentedWord, lastMatch.Index, lastMatch.Value.Length);
+            // TODO use text setter
+
+            textBox.Text = textBuilder.ToString();
+            textBox.SelectionStart = textBox.Text.Length;
+        }
+
+        /// <summary>
         /// Handles shortcuts.
         /// </summary>
         /// <param name="sender">event sender</param>
@@ -611,6 +651,17 @@ namespace ACAT.Lib.Core.TalkWindowManagement
             else if (e.Control & e.KeyCode == Keys.Back)
             {
                 SendKeys.SendWait("^+{LEFT}{BACKSPACE}");
+            }
+
+            if (!_accentManagerStorage.IsCurrentCultureSupported)
+            {
+                return;
+            }
+
+            // TODO other trigger
+            if (!char.IsLetterOrDigit((char)e.KeyCode))
+            {
+                ReplaceWithAccentedWord();
             }
         }
     }

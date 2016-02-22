@@ -302,9 +302,12 @@
     <Compile Include="Audit\AuditEventTextToSpeech.cs" />
     <Compile Include="UserManagement\ProfileManager.cs" />
     <Compile Include="UserManagement\UserManager.cs" />
+    <Compile Include="Utility\AccentManagerStorage.cs" />
+    <Compile Include="Utility\HungarianAccentManager.cs" />
     <Compile Include="Utility\Attributions.cs" />
     <Compile Include="Utility\AutomationEventManager.cs" />
     <Compile Include="Utility\BlockingQueue.cs" />
+    <Compile Include="Utility\Interfaces\IAccentManager.cs" />
     <Compile Include="Utility\Kernel32Interop.cs" />
     <Compile Include="Utility\CoreGlobals.cs" />
     <Compile Include="Utility\KeyToChar.cs" />
@@ -415,8 +418,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PanelManagement\UI\ToastForm.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -431,13 +435,15 @@
   <ItemGroup>
     <None Include="PanelManagement\UI\Images\SplashScreenBg.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="PanelManagement\UI\Images\Splash1.png" />
     <Content Include="PanelManagement\UI\Images\Splash2.png" />
     <Content Include="PanelManagement\UI\Images\Splash3.png" />
     <Content Include="PanelManagement\UI\Images\Splash4.png" />
     <Content Include="PanelManagement\UI\Images\Splash5.png" />
+    <EmbeddedResource Include="Resources\AccentDictionary_hu.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

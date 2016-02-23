@@ -18,7 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -35,6 +34,9 @@ namespace ACAT.Lib.Core.Utility
     /// </summary>
     public sealed class HungarianAccentManager : IAccentManager
     {
+        /// <summary>
+        /// Encapsulates a stream interval.
+        /// </summary>
         private sealed class Interval
         {
             public long BeginOffset { get; set; }
@@ -57,14 +59,14 @@ namespace ACAT.Lib.Core.Utility
         public HungarianAccentManager()
         {
             using (Stream stream = GetStream())
-            using (StreamReader sr = new StreamReader(stream, Encoding.GetEncoding(1250)))
+            using (StreamReader reader = new StreamReader(stream, Encoding.GetEncoding(1250)))
             {
                 char startChar = 'a';
                 string line;
 
                 AccentDictionary.Add(startChar, new Interval { BeginOffset = 0 });
 
-                while ((line = sr.ReadLine()) != null)
+                while ((line = reader.ReadLine()) != null)
                 {
                     char currentStartChar = line.FirstOrDefault();
                     if (startChar == currentStartChar)
@@ -78,10 +80,10 @@ namespace ACAT.Lib.Core.Utility
                         return;
                     }
 
-                    interval.EndOffset = sr.BaseStream.Position - 1;
+                    interval.EndOffset = reader.BaseStream.Position - 1;
                     startChar = currentStartChar;
 
-                    AccentDictionary.Add(startChar, new Interval { BeginOffset = sr.BaseStream.Position });
+                    AccentDictionary.Add(startChar, new Interval { BeginOffset = reader.BaseStream.Position });
                 }
             }
         }
@@ -118,13 +120,13 @@ namespace ACAT.Lib.Core.Utility
             }
 
             using (Stream stream = GetStream())
-            using (StreamReader sr = new StreamReader(stream, Encoding.GetEncoding(CodePage)))
+            using (StreamReader reader = new StreamReader(stream, Encoding.GetEncoding(CodePage)))
             {
-                sr.BaseStream.Seek(interval.BeginOffset, SeekOrigin.Begin);
+                reader.BaseStream.Seek(interval.BeginOffset, SeekOrigin.Begin);
 
-                while (sr.BaseStream.Position < interval.EndOffset)
+                while (reader.BaseStream.Position < interval.EndOffset)
                 {
-                    string line = sr.ReadLine();
+                    string line = reader.ReadLine();
                     if (line == null)
                     {
                         return false;
@@ -162,11 +164,9 @@ namespace ACAT.Lib.Core.Utility
             }
             catch (Exception)
             {
-                Debug.Fail("Couldn't get the accent dictionary file!");
+                Log.Warn("Couldn't get the accent dictionary file!");
 
-                // ReSharper disable HeuristicUnreachableCode
                 throw;
-                // ReSharper restore HeuristicUnreachableCode
             }
         }
     }

@@ -97,6 +97,11 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         private TTSValue _initialVolume;
 
         /// <summary>
+        /// Initial value of the synthesizer voice setting
+        /// </summary>
+        private string _initialVoice;
+
+        /// <summary>
         /// Did the user change anything?
         /// </summary>
         private bool _isDirty;
@@ -127,6 +132,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             tbPitch.TextChanged += tbPitch_TextChanged;
             tbRate.TextChanged += tbRate_TextChanged;
             tbVolume.TextChanged += tbVolume_TextChanged;
+            tbVoice.TextChanged += tbVoice_TextChanged;
             Load += TextToSpeechSettingsForm_Load;
             FormClosing += TextToSpeechSettingsForm_FormClosing;
         }
@@ -269,7 +275,23 @@ namespace ACAT.Extensions.Default.UI.Dialogs
                 return false;
             }
 
+            if (!isInstalledVoice(Windows.GetText(tbVoice)))
+            {
+                showError("Invalid Voice setting");
+                return false;
+            }
+
             return true;
+        }
+
+        /// <summary>
+        /// Determines the given voice is installed or not.
+        /// </summary>
+        /// <param name="voice">The synthesizer voice name</param>
+        /// <returns>true if the voice is installed, otherwise false</returns>
+        private bool isInstalledVoice(string voice)
+        {
+            return Context.AppTTSManager.ActiveEngine.GetVoices().Contains(voice);
         }
 
         /// <summary>
@@ -295,6 +317,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             tbVolume.Text = Convert.ToString(Context.AppTTSManager.ActiveEngine.GetVolume().Value);
             tbRate.Text = Convert.ToString(Context.AppTTSManager.ActiveEngine.GetRate().Value);
             tbPitch.Text = Convert.ToString(Context.AppTTSManager.ActiveEngine.GetPitch().Value);
+            tbVoice.Text = Context.AppTTSManager.ActiveEngine.Voice;
         }
 
         /// <summary>
@@ -327,6 +350,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             Context.AppTTSManager.ActiveEngine.SetVolume(_initialVolume.Value);
             Context.AppTTSManager.ActiveEngine.SetRate(_initialRate.Value);
             Context.AppTTSManager.ActiveEngine.SetPitch(_initialPitch.Value);
+            Context.AppTTSManager.ActiveEngine.Voice = _initialVoice;
         }
 
         /// <summary>
@@ -337,6 +361,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             _initialVolume = Context.AppTTSManager.ActiveEngine.GetVolume();
             _initialRate = Context.AppTTSManager.ActiveEngine.GetRate();
             _initialPitch = Context.AppTTSManager.ActiveEngine.GetPitch();
+            _initialVoice = Context.AppTTSManager.ActiveEngine.Voice;
         }
 
         /// <summary>
@@ -427,6 +452,16 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         }
 
         /// <summary>
+        /// The 'voice' changed in the dialog box
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="eventArgs">event args</param>
+        private void tbVoice_TextChanged(object sender, EventArgs eventArgs)
+        {
+            _isDirty = true;
+        }
+
+        /// <summary>
         /// Test the current settings by sending a string
         /// to the speech engine
         /// </summary>
@@ -437,10 +472,12 @@ namespace ACAT.Extensions.Default.UI.Dialogs
                 int volume = Convert.ToInt16(tbVolume.Text);
                 int rate = Convert.ToInt16(tbRate.Text);
                 int pitch = Convert.ToInt16(tbPitch.Text);
+                string voice = tbVoice.Text;
 
                 Context.AppTTSManager.ActiveEngine.SetVolume(volume);
                 Context.AppTTSManager.ActiveEngine.SetRate(rate);
                 Context.AppTTSManager.ActiveEngine.SetPitch(pitch);
+                Context.AppTTSManager.ActiveEngine.Voice = voice;
 
                 Context.AppTTSManager.ActiveEngine.Speak(Common.AppPreferences.UserVoiceTestString);
             }
@@ -481,6 +518,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             Context.AppTTSManager.ActiveEngine.SetVolume(Convert.ToInt16(tbVolume.Text));
             Context.AppTTSManager.ActiveEngine.SetPitch(Convert.ToInt16(tbPitch.Text));
             Context.AppTTSManager.ActiveEngine.SetRate(Convert.ToInt16(tbRate.Text));
+            Context.AppTTSManager.ActiveEngine.Voice = tbVoice.Text;
         }
 
         /// <summary>

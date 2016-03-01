@@ -42,8 +42,10 @@
             this.tbRate = new System.Windows.Forms.TextBox();
             this.tbVolume = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblVoice = new System.Windows.Forms.Label();
             this.lblTTSEngineName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbVoice = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +82,7 @@
             // lblTest
             // 
             this.lblTest.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTest.Location = new System.Drawing.Point(157, 302);
+            this.lblTest.Location = new System.Drawing.Point(144, 328);
             this.lblTest.Name = "lblTest";
             this.lblTest.Size = new System.Drawing.Size(113, 47);
             this.lblTest.TabIndex = 6;
@@ -91,7 +93,7 @@
             // lblRestoreDefaults
             // 
             this.lblRestoreDefaults.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestoreDefaults.Location = new System.Drawing.Point(283, 364);
+            this.lblRestoreDefaults.Location = new System.Drawing.Point(270, 390);
             this.lblRestoreDefaults.Name = "lblRestoreDefaults";
             this.lblRestoreDefaults.Size = new System.Drawing.Size(113, 47);
             this.lblRestoreDefaults.TabIndex = 2;
@@ -102,7 +104,7 @@
             // lblBack
             // 
             this.lblBack.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBack.Location = new System.Drawing.Point(157, 364);
+            this.lblBack.Location = new System.Drawing.Point(144, 390);
             this.lblBack.Name = "lblBack";
             this.lblBack.Size = new System.Drawing.Size(113, 47);
             this.lblBack.TabIndex = 1;
@@ -113,7 +115,7 @@
             // lblOK
             // 
             this.lblOK.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOK.Location = new System.Drawing.Point(31, 364);
+            this.lblOK.Location = new System.Drawing.Point(18, 390);
             this.lblOK.Name = "lblOK";
             this.lblOK.Size = new System.Drawing.Size(113, 47);
             this.lblOK.TabIndex = 0;
@@ -177,13 +179,29 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbVoice);
+            this.groupBox1.Controls.Add(this.lblVoice);
             this.groupBox1.Controls.Add(this.lblTTSEngineName);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblTest);
+            this.groupBox1.Controls.Add(this.lblOK);
+            this.groupBox1.Controls.Add(this.lblRestoreDefaults);
+            this.groupBox1.Controls.Add(this.lblBack);
             this.groupBox1.Location = new System.Drawing.Point(13, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(402, 425);
+            this.groupBox1.Size = new System.Drawing.Size(402, 457);
             this.groupBox1.TabIndex = 160;
             this.groupBox1.TabStop = false;
+            // 
+            // lblVoice
+            // 
+            this.lblVoice.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVoice.Location = new System.Drawing.Point(71, 268);
+            this.lblVoice.Name = "lblVoice";
+            this.lblVoice.Size = new System.Drawing.Size(100, 24);
+            this.lblVoice.TabIndex = 162;
+            this.lblVoice.Text = "Voice";
+            this.lblVoice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTTSEngineName
             // 
@@ -204,18 +222,22 @@
             this.label1.Text = "Text-to-Speech Settings";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tbVoice
+            // 
+            this.tbVoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbVoice.Location = new System.Drawing.Point(177, 268);
+            this.tbVoice.Name = "tbVoice";
+            this.tbVoice.Size = new System.Drawing.Size(140, 20);
+            this.tbVoice.TabIndex = 161;
+            // 
             // TextToSpeechSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 462);
+            this.ClientSize = new System.Drawing.Size(427, 494);
             this.Controls.Add(this.lblVolumeText);
             this.Controls.Add(this.lblRateText);
             this.Controls.Add(this.lblPitchText);
-            this.Controls.Add(this.lblTest);
-            this.Controls.Add(this.lblRestoreDefaults);
-            this.Controls.Add(this.lblBack);
-            this.Controls.Add(this.lblOK);
             this.Controls.Add(this.lblPitch);
             this.Controls.Add(this.tbPitch);
             this.Controls.Add(this.lblSpeed);
@@ -227,6 +249,7 @@
             this.Name = "TextToSpeechSettingsForm";
             this.Text = "ACAT";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,7 +273,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTTSEngineName;
-
+        private System.Windows.Forms.Label lblVoice;
+        private System.Windows.Forms.TextBox tbVoice;
     }
 }
 

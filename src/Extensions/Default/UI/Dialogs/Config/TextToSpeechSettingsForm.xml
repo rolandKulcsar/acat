@@ -14,6 +14,7 @@
     <Widget class="WinControlWidget" name="tbVolume" drawBorder="true" panel="Number"/>
     <Widget class="WinControlWidget" name="tbRate" drawBorder="true" panel="Number"/>
     <Widget class="WinControlWidget" name="tbPitch" drawBorder="true" panel="Number"/>
+    <Widget class="WinControlWidget" name="tbVoice" drawBorder="true" panel="Alphabet"/>
     <Widget class="ButtonControlWidget" name="lblOK" />
     <Widget class="ButtonControlWidget" name="lblBack" />
     <Widget class="ButtonControlWidget" name="lblTest" />
@@ -29,6 +30,7 @@
       <Widget name="tbVolume" onSelect="actuate(@SelectedWidget);" />
       <Widget name="tbRate" onSelect="actuate(@SelectedWidget);" />
       <Widget name="tbPitch" onSelect="actuate(@SelectedWidget);" />
+      <Widget name="tbVoice" onSelect="actuate(@SelectedWidget);" />
       <Widget name="lblTest" onSelect="actuate(@SelectedWidget);"/>
       <Widget name="lblOK" onSelect="actuate(@SelectedWidget);" />
       <Widget name="lblBack" onSelect="actuate(@SelectedWidget);"/>

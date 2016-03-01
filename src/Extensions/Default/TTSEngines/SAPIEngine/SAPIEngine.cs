@@ -19,9 +19,9 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Speech.Synthesis;
 using ACAT.Lib.Core.Extensions;
 using ACAT.Lib.Core.TTSManagement;
@@ -208,13 +208,13 @@ namespace ACAT.Extensions.Default.TTSEngines
         }
 
         /// <summary>
-        /// Gets or sets the voice to use. Not supported
+        /// Gets or sets the voice to use.
         /// </summary>
         public String Voice
         {
-            get { return String.Empty; }
+            get { return _speechSynthesizer.Voice.Name; }
 
-            set { }
+            set { setVoice(value); }
         }
 
         /// <summary>
@@ -280,15 +280,9 @@ namespace ACAT.Extensions.Default.TTSEngines
         /// <returns>List of names of vlices</returns>
         public List<String> GetVoices()
         {
-            ICollection collection = Synthesizer.GetInstalledVoices();
-
-            var voiceList = new List<String>();
-            foreach (InstalledVoice installedVoice in collection)
-            {
-                voiceList.Add(installedVoice.VoiceInfo.Name);
-            }
-
-            return voiceList;
+            return Synthesizer.GetInstalledVoices()
+                              .Select(info => info.VoiceInfo.Name)
+                              .ToList();
         }
 
         /// <summary>
@@ -370,10 +364,12 @@ namespace ACAT.Extensions.Default.TTSEngines
         /// </summary>
         public void RestoreDefaults()
         {
-            var settings = new SAPISettings();
+            string defaultVoice = GetVoices().FirstOrDefault();
+            SAPISettings settings = new SAPISettings(defaultVoice);
 
             Synthesizer.Rate = settings.Rate;
             Synthesizer.Volume = settings.Volume;
+            Synthesizer.SelectVoice(settings.Voice);
         }
 
         /// <summary>
@@ -394,6 +390,7 @@ namespace ACAT.Extensions.Default.TTSEngines
         {
             SAPISettings.Volume = Synthesizer.Volume;
             SAPISettings.Rate = Synthesizer.Rate;
+            SAPISettings.Voice = Synthesizer.Voice.Name;
 
             SAPISettings.Save();
 
@@ -626,6 +623,30 @@ namespace ACAT.Extensions.Default.TTSEngines
         {
             SetVolume(SAPISettings.Volume);
             SetRate(SAPISettings.Rate);
+            setVoice(SAPISettings.Voice);
+        }
+
+        /// <summary>
+        /// Sets the speech synthesizer voice.
+        /// </summary>
+        /// <param name="voice">The installed synthesizer voice name</param>
+        private void setVoice(string voice)
+        {
+            if (!GetVoices().Contains(voice))
+            {
+                Log.Warn(string.Format("Couldn't find the {0} TTS voice", voice));
+
+                return;
+            }
+
+            try
+            {
+                _speechSynthesizer.SelectVoice(voice);
+            }
+            catch (Exception ex)
+            {
+                Log.Warn(ex.Message);
+            }
         }
 
         /// <summary>

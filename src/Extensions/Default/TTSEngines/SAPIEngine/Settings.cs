@@ -88,6 +88,21 @@ namespace ACAT.Extensions.Default.TTSEngines
         }
 
         /// <summary>
+        /// Initializes a new instance of the class.
+        /// </summary>
+        /// <param name="defaultVoice">The default voice of the system</param>
+        public SAPISettings(string defaultVoice)
+            : this()
+        {
+            if (defaultVoice == null)
+            {
+                throw new ArgumentNullException("defaultVoice");
+            }
+
+            Voice = defaultVoice;
+        }
+
+        /// <summary>
         /// Gets or sets the pitch
         /// </summary>
         public int Pitch { get; set; }
@@ -106,6 +121,11 @@ namespace ACAT.Extensions.Default.TTSEngines
         /// Gets or sets the volume
         /// </summary>
         public int Volume { get; set; }
+
+        /// <summary>
+        /// Gets or sets the synthesizer voice.
+        /// </summary>
+        public string Voice { get; set; }
 
         /// <summary>
         /// Loads settings from file

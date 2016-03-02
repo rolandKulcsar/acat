@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblVolumeText = new System.Windows.Forms.Label();
             this.lblRateText = new System.Windows.Forms.Label();
             this.lblPitchText = new System.Windows.Forms.Label();
@@ -42,11 +44,14 @@
             this.tbRate = new System.Windows.Forms.TextBox();
             this.tbVolume = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblInstalledVoices = new System.Windows.Forms.Label();
+            this.dgvInstalledVoices = new System.Windows.Forms.DataGridView();
+            this.tbVoice = new System.Windows.Forms.TextBox();
             this.lblVoice = new System.Windows.Forms.Label();
             this.lblTTSEngineName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbVoice = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstalledVoices)).BeginInit();
             this.SuspendLayout();
             // 
             // lblVolumeText
@@ -179,6 +184,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblInstalledVoices);
+            this.groupBox1.Controls.Add(this.dgvInstalledVoices);
             this.groupBox1.Controls.Add(this.tbVoice);
             this.groupBox1.Controls.Add(this.lblVoice);
             this.groupBox1.Controls.Add(this.lblTTSEngineName);
@@ -189,9 +196,59 @@
             this.groupBox1.Controls.Add(this.lblBack);
             this.groupBox1.Location = new System.Drawing.Point(13, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(402, 457);
+            this.groupBox1.Size = new System.Drawing.Size(786, 457);
             this.groupBox1.TabIndex = 160;
             this.groupBox1.TabStop = false;
+            // 
+            // lblInstalledVoices
+            // 
+            this.lblInstalledVoices.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstalledVoices.Location = new System.Drawing.Point(398, 37);
+            this.lblInstalledVoices.Name = "lblInstalledVoices";
+            this.lblInstalledVoices.Size = new System.Drawing.Size(369, 31);
+            this.lblInstalledVoices.TabIndex = 164;
+            this.lblInstalledVoices.Text = "Installed TTS voices";
+            this.lblInstalledVoices.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgvInstalledVoices
+            // 
+            this.dgvInstalledVoices.AllowUserToAddRows = false;
+            this.dgvInstalledVoices.AllowUserToDeleteRows = false;
+            this.dgvInstalledVoices.AllowUserToOrderColumns = true;
+            this.dgvInstalledVoices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvInstalledVoices.BackgroundColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInstalledVoices.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvInstalledVoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInstalledVoices.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvInstalledVoices.Location = new System.Drawing.Point(398, 102);
+            this.dgvInstalledVoices.MultiSelect = false;
+            this.dgvInstalledVoices.Name = "dgvInstalledVoices";
+            this.dgvInstalledVoices.ReadOnly = true;
+            this.dgvInstalledVoices.RowHeadersVisible = false;
+            this.dgvInstalledVoices.Size = new System.Drawing.Size(369, 335);
+            this.dgvInstalledVoices.TabIndex = 163;
+            // 
+            // tbVoice
+            // 
+            this.tbVoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbVoice.Location = new System.Drawing.Point(177, 268);
+            this.tbVoice.Name = "tbVoice";
+            this.tbVoice.Size = new System.Drawing.Size(152, 20);
+            this.tbVoice.TabIndex = 161;
             // 
             // lblVoice
             // 
@@ -222,19 +279,11 @@
             this.label1.Text = "Text-to-Speech Settings";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tbVoice
-            // 
-            this.tbVoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbVoice.Location = new System.Drawing.Point(177, 268);
-            this.tbVoice.Name = "tbVoice";
-            this.tbVoice.Size = new System.Drawing.Size(140, 20);
-            this.tbVoice.TabIndex = 161;
-            // 
             // TextToSpeechSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 494);
+            this.ClientSize = new System.Drawing.Size(811, 494);
             this.Controls.Add(this.lblVolumeText);
             this.Controls.Add(this.lblRateText);
             this.Controls.Add(this.lblPitchText);
@@ -250,6 +299,7 @@
             this.Text = "ACAT";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstalledVoices)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,6 +325,8 @@
         private System.Windows.Forms.Label lblTTSEngineName;
         private System.Windows.Forms.Label lblVoice;
         private System.Windows.Forms.TextBox tbVoice;
+        private System.Windows.Forms.DataGridView dgvInstalledVoices;
+        private System.Windows.Forms.Label lblInstalledVoices;
     }
 }
 

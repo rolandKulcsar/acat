@@ -315,6 +315,7 @@
     <Compile Include="Utility\Mouse\MouseGridScanWindow.xaml.cs">
       <DependentUpon>MouseGridScanWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utility\VoiceRecord.cs" />
     <Compile Include="Utility\XmlUtils.cs" />
     <Compile Include="Utility\DescriptorAttribute.cs" />
     <Compile Include="Utility\DirectoryWalker.cs">

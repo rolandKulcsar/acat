@@ -21,7 +21,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Security.Permissions;
+using System.Speech.Synthesis;
 using System.Windows.Forms;
 using ACAT.Lib.Core.PanelManagement;
 using ACAT.Lib.Core.TTSManagement;
@@ -318,6 +320,8 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             tbRate.Text = Convert.ToString(Context.AppTTSManager.ActiveEngine.GetRate().Value);
             tbPitch.Text = Convert.ToString(Context.AppTTSManager.ActiveEngine.GetPitch().Value);
             tbVoice.Text = Context.AppTTSManager.ActiveEngine.Voice;
+
+            dgvInstalledVoices.DataSource = getInstalledVoiceRecords();
         }
 
         /// <summary>
@@ -459,6 +463,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         private void tbVoice_TextChanged(object sender, EventArgs eventArgs)
         {
             _isDirty = true;
+            selectInstalledVoiceRow();
         }
 
         /// <summary>
@@ -507,6 +512,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             _dialogCommon.OnLoad();
             subscribeToEvents();
             _dialogCommon.GetAnimationManager().Start(_dialogCommon.GetRootWidget());
+            selectInstalledVoiceRow();
         }
 
         /// <summary>
@@ -530,6 +536,51 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         private void widget_EvtValueChanged(object sender, WidgetEventArgs e)
         {
             _isDirty = true;
+        }
+
+        /// <summary>
+        /// Gets the list of the installed voice records
+        /// </summary>
+        /// <returns>list of the installed voice records</returns>
+        private List<VoiceRecord> getInstalledVoiceRecords()
+        {
+            List<VoiceRecord> records = new List<VoiceRecord>();
+
+            using (SpeechSynthesizer synthesizer = new SpeechSynthesizer())
+            {
+                records.AddRange(synthesizer.GetInstalledVoices().Select(installedVoice => new VoiceRecord
+                {
+                    Name = installedVoice.VoiceInfo.Name,
+                    Culture = installedVoice.VoiceInfo.Culture.ToString(),
+                    Gender = installedVoice.VoiceInfo.Gender.ToString(),
+                    Age = installedVoice.VoiceInfo.Age.ToString()
+                }));
+            }
+
+            return records.OrderByDescending(record => record.Culture).ToList();
+        }
+
+        /// <summary>
+        /// Selects the proper installed voice record row in the grid
+        /// </summary>
+        private void selectInstalledVoiceRow()
+        {
+            dgvInstalledVoices.ClearSelection();
+
+            foreach (DataGridViewRow row in dgvInstalledVoices.Rows)
+            {
+                DataGridViewCell nameCell = row.Cells["Name"];
+                if (nameCell == null)
+                {
+                    continue;
+                }
+
+                string voiceName = nameCell.Value as string;
+                if (voiceName == tbVoice.Text)
+                {
+                    row.Selected = true;
+                }
+            }
         }
     }
 }

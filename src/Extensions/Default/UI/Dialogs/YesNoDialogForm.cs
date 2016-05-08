@@ -293,6 +293,8 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
             initialize();
 
+            Windows.SetText(labelCaption, labelCaption.Text);
+
             _dialogCommon.GetAnimationManager().Start(_dialogCommon.GetRootWidget());
         }
 

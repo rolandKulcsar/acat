@@ -337,6 +337,21 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
             subscribeToEvents();
 
+            Windows.SetText(label1, label1.Text);
+            Windows.SetText(lblNumberofTimes, lblNumberofTimes.Text);
+            Windows.SetText(lblEveryHalf, lblEveryHalf.Text);
+            Windows.SetText(lblEveryRow, lblEveryRow.Text);
+            Windows.SetText(lblEveryColumn, lblEveryColumn.Text);
+            Windows.SetText(lblWordPrediction, lblWordPrediction.Text);
+            Windows.SetText(lblScanTimes, lblScanTimes.Text);
+            Windows.SetText(lblAcceptTime, lblAcceptTime.Text);
+            Windows.SetText(lblSteppingTime, lblSteppingTime.Text);
+            Windows.SetText(lblHesitateTime, lblHesitateTime.Text);
+            Windows.SetText(lblWordListHesitateTime, lblWordListHesitateTime.Text);
+            Windows.SetText(lblTabScanTime, lblTabScanTime.Text);
+            Windows.SetText(lblFirstRepeatTime, lblFirstRepeatTime.Text);
+            Windows.SetText(lblSelectingClick, lblSelectingClick.Text);
+
             _dialogCommon.GetAnimationManager().Start(_dialogCommon.GetRootWidget());
         }
 

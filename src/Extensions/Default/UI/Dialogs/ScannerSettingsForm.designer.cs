@@ -155,7 +155,7 @@
             this.lblNumberofTimes.ForeColor = System.Drawing.Color.Black;
             this.lblNumberofTimes.Location = new System.Drawing.Point(37, 43);
             this.lblNumberofTimes.Name = "lblNumberofTimes";
-            this.lblNumberofTimes.Size = new System.Drawing.Size(165, 28);
+            this.lblNumberofTimes.Size = new System.Drawing.Size(192, 28);
             this.lblNumberofTimes.TabIndex = 133;
             this.lblNumberofTimes.Text = "Scan Iterations";
             // 
@@ -164,7 +164,7 @@
             this.lblSelectingClick.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSelectingClick.Location = new System.Drawing.Point(77, 616);
             this.lblSelectingClick.Name = "lblSelectingClick";
-            this.lblSelectingClick.Size = new System.Drawing.Size(173, 29);
+            this.lblSelectingClick.Size = new System.Drawing.Size(245, 29);
             this.lblSelectingClick.TabIndex = 131;
             this.lblSelectingClick.Text = "Beep on Select";
             this.lblSelectingClick.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

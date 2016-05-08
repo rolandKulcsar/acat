@@ -285,6 +285,14 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
             subscribeToEvents();
 
+            Windows.SetText(label1, label1.Text);
+            Windows.SetText(lblVerticalSpeed, lblVerticalSpeed.Text);
+            Windows.SetText(lblVerticalSweeps, lblVerticalSweeps.Text);
+            Windows.SetText(lblHorizontalSpeed, lblHorizontalSpeed.Text);
+            Windows.SetText(lblHorizontalSweeps, lblHorizontalSweeps.Text);
+            Windows.SetText(lblLineWidth, lblLineWidth.Text);
+            Windows.SetText(lblEnableVerticalRectScan, lblEnableVerticalRectScan.Text);
+
             _dialogCommon.GetAnimationManager().Start(_dialogCommon.GetRootWidget());
         }
 

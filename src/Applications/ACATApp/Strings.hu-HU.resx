@@ -117,4 +117,277 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Abbreviations" xml:space="preserve">
+    <value>Rövidítések</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Készítők</value>
+  </data>
+  <data name="Beep On Select" xml:space="preserve">
+    <value>Sípolás kiválasztáskor</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Vissza</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Bezárás</value>
+  </data>
+  <data name="Defaults" xml:space="preserve">
+    <value>Alap</value>
+  </data>
+  <data name="Dynamic Learning" xml:space="preserve">
+    <value>Dinamikus tanulás</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Kilépés</value>
+  </data>
+  <data name="File Browser" xml:space="preserve">
+    <value>Fájlböngésző</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Általános</value>
+  </data>
+  <data name="Launch App" xml:space="preserve">
+    <value>Program indítás</value>
+  </data>
+  <data name="Lecture Mgr" xml:space="preserve">
+    <value>Előadó menedszer</value>
+  </data>
+  <data name="Lock Screen" xml:space="preserve">
+    <value>Zárolás</value>
+  </data>
+  <data name="Main Menu" xml:space="preserve">
+    <value>Főmenü</value>
+  </data>
+  <data name="Max/Restore" xml:space="preserve">
+    <value>Maximum/Visszaállítás</value>
+  </data>
+  <data name="Minimize" xml:space="preserve">
+    <value>Minimalizálás</value>
+  </data>
+  <data name="Mouse Scan" xml:space="preserve">
+    <value>Egér szkennelés</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Mozgatás</value>
+  </data>
+  <data name="New File" xml:space="preserve">
+    <value>Új fájl</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nem</value>
+  </data>
+  <data name="Phrases" xml:space="preserve">
+    <value>Kifejezések</value>
+  </data>
+  <data name="PIN Code" xml:space="preserve">
+    <value>PIN kód</value>
+  </data>
+  <data name="Resize" xml:space="preserve">
+    <value>Átméretezés</value>
+  </data>
+  <data name="Scan" xml:space="preserve">
+    <value>Szkennelés</value>
+  </data>
+  <data name="Screen Lock" xml:space="preserve">
+    <value>Zárolási képernyő</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="Size/Position" xml:space="preserve">
+    <value>Méret/Pozíció</value>
+  </data>
+  <data name="Snap" xml:space="preserve">
+    <value>Csattanás</value>
+  </data>
+  <data name="Switch" xml:space="preserve">
+    <value>Váltás</value>
+  </data>
+  <data name="Switch Win" xml:space="preserve">
+    <value>Ablakváltás</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Teszt</value>
+  </data>
+  <data name="Text-to-Speech" xml:space="preserve">
+    <value>Szöveg-Beszéd</value>
+  </data>
+  <data name="Use Corpus Model" xml:space="preserve">
+    <value>Corpus modell használata</value>
+  </data>
+  <data name="Word Count" xml:space="preserve">
+    <value>Szavak</value>
+  </data>
+  <data name="Word Prediction" xml:space="preserve">
+    <value>Szópredikció</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Igen</value>
+  </data>
+  <data name="General Settings" xml:space="preserve">
+    <value>Általános beáll.</value>
+  </data>
+  <data name="Lock the screen" xml:space="preserve">
+    <value>Képernyő zárolása</value>
+  </data>
+  <data name="Are you sure you want to exit?" xml:space="preserve">
+    <value>Biztosan ki szeretne lépni?</value>
+  </data>
+  <data name="Auto-save scanner's last position" xml:space="preserve">
+    <value>Szkenner pozíciójának aut. mentése</value>
+  </data>
+  <data name="Changes not saved. Quit?" xml:space="preserve">
+    <value>A változtatások nincsenek mentve. Kilépés?</value>
+  </data>
+  <data name="Close?" xml:space="preserve">
+    <value>Bezárás?</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>Oszlopok</value>
+  </data>
+  <data name="Digits: 0  to" xml:space="preserve">
+    <value>Számjegyek 0-tól</value>
+  </data>
+  <data name="Enable audit log" xml:space="preserve">
+    <value>Audit napló engedélyezése</value>
+  </data>
+  <data name="Enable debug trace logging" xml:space="preserve">
+    <value>Debug napló engedélyezése</value>
+  </data>
+  <data name="Enable Vertical Rectangle Scan" xml:space="preserve">
+    <value>Függ. téglalap szkennelés eng.</value>
+  </data>
+  <data name="Expand abbreviations on separator" xml:space="preserve">
+    <value>Rövidítések kiterjesztése elválasztáskor</value>
+  </data>
+  <data name="First Pause" xml:space="preserve">
+    <value>Első szünet</value>
+  </data>
+  <data name="First Repeat Time" xml:space="preserve">
+    <value>Első ismétlési idő</value>
+  </data>
+  <data name="Grid" xml:space="preserve">
+    <value>Rács</value>
+  </data>
+  <data name="Hide scanners on idle" xml:space="preserve">
+    <value>Szkenner elrejtése alapállapotban</value>
+  </data>
+  <data name="Installed TTS voices" xml:space="preserve">
+    <value>Telepített TTS hangok</value>
+  </data>
+  <data name="Line Cycles" xml:space="preserve">
+    <value>Vonal ciklusok</value>
+  </data>
+  <data name="Line Speed" xml:space="preserve">
+    <value>Vonal sebesség</value>
+  </data>
+  <data name="Line Thickness" xml:space="preserve">
+    <value>Vonal vastagság</value>
+  </data>
+  <data name="Lock the screen?" xml:space="preserve">
+    <value>Képernyő zárolása?</value>
+  </data>
+  <data name="Menu / Dialog Scan" xml:space="preserve">
+    <value>Menü / Dialógus Szkennelés</value>
+  </data>
+  <data name="Min. Actuation Hold" xml:space="preserve">
+    <value>Min. mozgatási tartás</value>
+  </data>
+  <data name="Mouse Scan Settings" xml:space="preserve">
+    <value>Egér Szkenn. beáll.</value>
+  </data>
+  <data name="Pitch" xml:space="preserve">
+    <value>Csúcs</value>
+  </data>
+  <data name="Quit Application?" xml:space="preserve">
+    <value>Kilépés az alkalmazásból?</value>
+  </data>
+  <data name="Range: 0 to" xml:space="preserve">
+    <value>Tartomány: 0-tól</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Sebesség</value>
+  </data>
+  <data name="Rectangle Cycles" xml:space="preserve">
+    <value>Téglalap ciklusok</value>
+  </data>
+  <data name="Rectangle Speed" xml:space="preserve">
+    <value>Téglalap sebesség</value>
+  </data>
+  <data name="Reposition" xml:space="preserve">
+    <value>Újrapozícionálás</value>
+  </data>
+  <data name="Restore Defaults" xml:space="preserve">
+    <value>Alap. visszaállítása</value>
+  </data>
+  <data name="Retain Talk window text on close" xml:space="preserve">
+    <value>Beszélő ablak szövegének megtartása</value>
+  </data>
+  <data name="Rows" xml:space="preserve">
+    <value>Sorok</value>
+  </data>
+  <data name="SAPI TTS Engine" xml:space="preserve">
+    <value>SAPI TTS motor</value>
+  </data>
+  <data name="Scan Iterations" xml:space="preserve">
+    <value>Szkenn. iterációk</value>
+  </data>
+  <data name="Scan Settings" xml:space="preserve">
+    <value>Szkenner beáll.</value>
+  </data>
+  <data name="Screen Lock Settings" xml:space="preserve">
+    <value>Zárolási kép beáll.</value>
+  </data>
+  <data name="Show glass under Talk window" xml:space="preserve">
+    <value>Háttér a Beszélő ablak mögött</value>
+  </data>
+  <data name="Show Talk window on startup" xml:space="preserve">
+    <value>Beszélő ablak mutatása indításkor</value>
+  </data>
+  <data name="Sort Order:" xml:space="preserve">
+    <value>Rendezési sorrend:</value>
+  </data>
+  <data name="Text-to-Speech Settings" xml:space="preserve">
+    <value>Szöveg-Beszéd beáll.</value>
+  </data>
+  <data name="Timings (in msecs)" xml:space="preserve">
+    <value>Ütemezés (ms)</value>
+  </data>
+  <data name="Voice" xml:space="preserve">
+    <value>Hang</value>
+  </data>
+  <data name="Volume" xml:space="preserve">
+    <value>Hangerő</value>
+  </data>
+  <data name="Word Prediction Settings" xml:space="preserve">
+    <value>Szó predikció beáll.</value>
+  </data>
+  <data name="WordList Pause" xml:space="preserve">
+    <value>Szólista szünet</value>
+  </data>
+  <data name="Zoom In" xml:space="preserve">
+    <value>Nagyítás</value>
+  </data>
+  <data name="Zoom Out" xml:space="preserve">
+    <value>Kicsinyítés</value>
+  </data>
+  <data name="Invalid Pitch setting" xml:space="preserve">
+    <value>Érvénytelen csúcs</value>
+  </data>
+  <data name="Invalid Rate setting" xml:space="preserve">
+    <value>Érvénytelen sebesség</value>
+  </data>
+  <data name="Invalid Voice setting" xml:space="preserve">
+    <value>Érvénytelen hang</value>
+  </data>
+  <data name="Invalid Volume setting" xml:space="preserve">
+    <value>Érvénytelen hangerő</value>
+  </data>
+  <data name="Restore default settings?" xml:space="preserve">
+    <value>Alapértelmezett visszaállítása?</value>
+  </data>
+  <data name="Save settings?" xml:space="preserve">
+    <value>Beállítások mentése?</value>
+  </data>
 </root>

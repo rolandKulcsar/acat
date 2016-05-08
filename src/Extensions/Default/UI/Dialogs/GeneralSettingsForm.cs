@@ -238,6 +238,16 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
             subscribeToEvents();
 
+            Windows.SetText(label1, label1.Text);
+            Windows.SetText(lblScannerAutoSaveLastPosition, lblScannerAutoSaveLastPosition.Text);
+            Windows.SetText(lblHideScannersOnIdle, lblHideScannersOnIdle.Text);
+            Windows.SetText(lblShowGlass, lblShowGlass.Text);
+            Windows.SetText(lblShowTalkWindowOnStartup, lblShowTalkWindowOnStartup.Text);
+            Windows.SetText(lblRetainTalkWindowText, lblRetainTalkWindowText.Text);
+            Windows.SetText(lblExpandAbbreviationsOnSeparator, lblExpandAbbreviationsOnSeparator.Text);
+            Windows.SetText(lblEnableDebugTraceLogging, lblEnableDebugTraceLogging.Text);
+            Windows.SetText(lblEnableAuditLog, lblEnableAuditLog.Text);
+
             _dialogCommon.GetAnimationManager().Start(_dialogCommon.GetRootWidget());
         }
 

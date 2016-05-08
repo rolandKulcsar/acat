@@ -299,6 +299,11 @@ namespace ACAT.Extensions.Default.UI.Dialogs
 
             subscribeToEvents();
 
+            Windows.SetText(label1, label1.Text);
+            Windows.SetText(lblDynamicLearning, lblDynamicLearning.Text);
+            Windows.SetText(lblUseCorpus, lblUseCorpus.Text);
+            Windows.SetText(lblWordCount, lblWordCount.Text);
+
             _dialogCommon.GetAnimationManager().Start(_dialogCommon.GetRootWidget());
         }
 

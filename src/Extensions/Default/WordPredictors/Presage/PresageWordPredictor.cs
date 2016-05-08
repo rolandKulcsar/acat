@@ -24,7 +24,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
+using System.Text;
 using System.Threading;
 using ACAT.Extensions.Default.WordPredictors.Presage.PresageService;
 using ACAT.Lib.Core.UserManagement;
@@ -514,8 +514,8 @@ namespace ACAT.Extensions.Default.WordPredictors.PresageWCF
                 string[] prediction = _presage.predict(prevWords, currentWord);
                 for (int ii = 0; ii < prediction.Length; ii++)
                 {
-                    // remove non-ascii characters
-                    prediction[ii] = Regex.Replace(prediction[ii], "[^ -~]", "");
+                    byte[] encodedBytes = Encoding.Default.GetBytes(prediction[ii]);
+                    prediction[ii] = Encoding.UTF8.GetString(encodedBytes);
                 }
 
                 var predictionList = prediction.ToList();

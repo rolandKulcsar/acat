@@ -61,7 +61,7 @@
             this.lblVolumeText.Name = "lblVolumeText";
             this.lblVolumeText.Size = new System.Drawing.Size(79, 25);
             this.lblVolumeText.TabIndex = 158;
-            this.lblVolumeText.Text = "(1 to 15)";
+            this.lblVolumeText.Text = "(1 - 15)";
             this.lblVolumeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblRateText
@@ -71,7 +71,7 @@
             this.lblRateText.Name = "lblRateText";
             this.lblRateText.Size = new System.Drawing.Size(79, 25);
             this.lblRateText.TabIndex = 157;
-            this.lblRateText.Text = "(50 to 250)";
+            this.lblRateText.Text = "(50 - 250)";
             this.lblRateText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPitchText
@@ -81,7 +81,7 @@
             this.lblPitchText.Name = "lblPitchText";
             this.lblPitchText.Size = new System.Drawing.Size(79, 25);
             this.lblPitchText.TabIndex = 156;
-            this.lblPitchText.Text = "(50 to 200)";
+            this.lblPitchText.Text = "(50 - 200)";
             this.lblPitchText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTest
@@ -131,9 +131,9 @@
             // lblPitch
             // 
             this.lblPitch.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPitch.Location = new System.Drawing.Point(84, 237);
+            this.lblPitch.Location = new System.Drawing.Point(78, 237);
             this.lblPitch.Name = "lblPitch";
-            this.lblPitch.Size = new System.Drawing.Size(100, 24);
+            this.lblPitch.Size = new System.Drawing.Size(106, 24);
             this.lblPitch.TabIndex = 155;
             this.lblPitch.Text = "Pitch";
             this.lblPitch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -149,9 +149,9 @@
             // lblSpeed
             // 
             this.lblSpeed.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpeed.Location = new System.Drawing.Point(84, 179);
+            this.lblSpeed.Location = new System.Drawing.Point(78, 179);
             this.lblSpeed.Name = "lblSpeed";
-            this.lblSpeed.Size = new System.Drawing.Size(100, 24);
+            this.lblSpeed.Size = new System.Drawing.Size(106, 24);
             this.lblSpeed.TabIndex = 154;
             this.lblSpeed.Text = "Rate";
             this.lblSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,9 +159,9 @@
             // lblVolume
             // 
             this.lblVolume.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVolume.Location = new System.Drawing.Point(84, 123);
+            this.lblVolume.Location = new System.Drawing.Point(82, 123);
             this.lblVolume.Name = "lblVolume";
-            this.lblVolume.Size = new System.Drawing.Size(100, 24);
+            this.lblVolume.Size = new System.Drawing.Size(102, 24);
             this.lblVolume.TabIndex = 153;
             this.lblVolume.Text = "Volume";
             this.lblVolume.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -253,9 +253,9 @@
             // lblVoice
             // 
             this.lblVoice.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVoice.Location = new System.Drawing.Point(71, 268);
+            this.lblVoice.Location = new System.Drawing.Point(65, 268);
             this.lblVoice.Name = "lblVoice";
-            this.lblVoice.Size = new System.Drawing.Size(100, 24);
+            this.lblVoice.Size = new System.Drawing.Size(106, 24);
             this.lblVoice.TabIndex = 162;
             this.lblVoice.Text = "Voice";
             this.lblVoice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -273,7 +273,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             if (!int.TryParse(Windows.GetText(tbPitch), out value) ||
                 !_initialPitch.IsValid(value))
             {
-                showError("Invalid Rate setting");
+                showError("Invalid Pitch setting");
                 return false;
             }
 
@@ -503,14 +503,23 @@ namespace ACAT.Extensions.Default.UI.Dialogs
         /// </summary>
         private void TextToSpeechSettingsForm_Load(object sender, EventArgs e)
         {
-            lblVolumeText.Text = _initialVolume.RangeMin + " to " + _initialVolume.RangeMax;
-            lblRateText.Text = _initialRate.RangeMin + " to " + _initialRate.RangeMax;
-            lblPitchText.Text = _initialPitch.RangeMin + " to " + _initialPitch.RangeMax;
+            lblVolumeText.Text = _initialVolume.RangeMin + " - " + _initialVolume.RangeMax;
+            lblRateText.Text = _initialRate.RangeMin + " - " + _initialRate.RangeMax;
+            lblPitchText.Text = _initialPitch.RangeMin + " - " + _initialPitch.RangeMax;
             lblTTSEngineName.Text = Context.AppTTSManager.ActiveEngine.Descriptor.Name;
 
             _windowActiveWatchdog = new WindowActiveWatchdog(this);
             _dialogCommon.OnLoad();
             subscribeToEvents();
+
+            Windows.SetText(label1, label1.Text);
+            Windows.SetText(lblTTSEngineName, lblTTSEngineName.Text);
+            Windows.SetText(lblVolume, lblVolume.Text);
+            Windows.SetText(lblSpeed, lblSpeed.Text);
+            Windows.SetText(lblPitch, lblPitch.Text);
+            Windows.SetText(lblVoice, lblVoice.Text);
+            Windows.SetText(lblInstalledVoices, lblInstalledVoices.Text);
+
             _dialogCommon.GetAnimationManager().Start(_dialogCommon.GetRootWidget());
             selectInstalledVoiceRow();
         }

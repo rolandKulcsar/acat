@@ -146,7 +146,7 @@ namespace ACAT.Extensions.Default.UI.Dialogs
             this.lblMaxDigit.Name = "lblMaxDigit";
             this.lblMaxDigit.Size = new System.Drawing.Size(146, 26);
             this.lblMaxDigit.TabIndex = 130;
-            this.lblMaxDigit.Text = "Digits: 0  to  ";
+            this.lblMaxDigit.Text = "Digits: 0 to ";
             this.lblMaxDigit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbPINCode
